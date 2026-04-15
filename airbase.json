@@ -1,0 +1,5 @@
+{
+  "framework": "container",
+  "handle": "savehawkerz/savehawkerz-playbook",
+  "port": 3000
+}
