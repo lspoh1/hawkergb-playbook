@@ -13,8 +13,7 @@ jobs:
 
       - name: Deploy to Airbase
         run: |
-          mkdir -p ~/.local/bin
-          curl -fsSL https://console.airbase.tech.gov.sg/dist/install.sh | sh
           echo "${{ secrets.AIRBASE_RC }}" > ~/.airbaserc
-          ~/.local/bin/airbase --verbose login --ci -e https://console.airbase.tech.gov.sg
-          ~/.local/bin/airbase deploy --ci --image hawkergb-playbook:${{ github.sha }} --yes
+          
+          airbase --verbose login --ci -e https://console.airbase.tech.gov.sg
+          airbase deploy --ci --image hawkergb-playbook:${{ github.sha }} --yes
