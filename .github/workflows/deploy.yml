@@ -13,6 +13,7 @@ jobs:
 
       - name: Deploy to Airbase
         run: |
+          mkdir -p ~/.local/bin
           curl -fsSL https://console.airbase.tech.gov.sg/dist/install.sh | sh
           airbase --verbose login --ci -e https://console.airbase.tech.gov.sg
           echo "${{ secrets.AIRBASE_RC }}" > ~/.airbaserc
