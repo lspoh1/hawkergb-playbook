@@ -18,4 +18,4 @@ jobs:
           export PATH="$HOME/.local/bin:$PATH"
           echo "${{ secrets.AIRBASE_RC }}" > ~/.airbaserc
           airbase --verbose login --ci -e https://console.airbase.tech.gov.sg
-          airbase deploy --image hawkergb-playbook:${{ github.sha }} --yes
+          airbase deploy --ci --image hawkergb-playbook:${{ github.sha }} --yes
