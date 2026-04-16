@@ -13,6 +13,7 @@ jobs:
 
       - name: Deploy to Airbase
         run: |
-          npm install -g @airbase/airbase-cli@containers
+          curl -fsSL https://console.airbase.tech.gov.sg/dist/install.sh | sh
+          airbase --verbose login --ci -e https://console.airbase.tech.gov.sg
           echo "${{ secrets.AIRBASE_RC }}" > ~/.airbaserc
-          airbase container deploy --project myteam/myapp --image hawkergb-playbook:${{ github.sha }} --yes
+          airbase deploy --image hawkergb-playbook:${{ github.sha }} --yes
